@@ -1,0 +1,35 @@
+{
+  "name": "QuizReact",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "webpack --progress --colors --watch",
+    "start": "httpster",
+    "build": "webpack -p"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "BSD",
+  "dependencies": {
+    "babel": "6.1.18",
+    "babel-core": "6.2.1",
+    "babel-loader": "6.2.0",
+    "babel-plugin-transform-object-rest-spread": "6.1.18",
+    "babel-polyfill": "6.3.14",
+    "babel-preset-es2015": "6.1.18",
+    "babel-preset-react": "6.1.18",
+    "isomorphic-fetch": "2.2.0",
+    "jquery": "2.1.4",
+    "react": "0.14.3",
+    "react-dom": "0.14.3",
+    "react-redux": "4.0.0",
+    "redux": "3.0.4",
+    "redux-logger": "2.0.4",
+    "redux-thunk": "1.0.0",
+    "webpack": "1.12.9"
+  },
+  "devDependencies": {
+    "httpster": "1.0.1"
+  }
+}

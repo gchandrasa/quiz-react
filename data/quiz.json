@@ -1,0 +1,47 @@
+{
+  "title": "Elementary Math Quiz",
+  "questions": [
+    {
+      "question": "5 x 4 =",
+      "answers": [
+        {
+          "point": 1,
+          "label": "20"
+        },
+        {
+          "point": 0,
+          "label": "10"
+        },
+        {
+          "point": 0,
+          "label": "30"
+        },
+        {
+          "point": 0,
+          "label": "25"
+        }
+      ]
+    },
+    {
+      "question": "2 + 4 x 10 =",
+      "answers": [
+        {
+          "point": 0,
+          "label": "60"
+        },
+        {
+          "point": 1,
+          "label": "42"
+        },
+        {
+          "point": 0,
+          "label": "40"
+        },
+        {
+          "point": 0,
+          "label": "20"
+        }
+      ]
+    }
+  ]
+}
