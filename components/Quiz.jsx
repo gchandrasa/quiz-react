@@ -11,25 +11,20 @@ export default class Quiz extends React.Component {
       this.state = {
         quiz: {},
         index: 0,
-        numberOfQuestions: 0,
-        score: 0,
-        answers: [],
-        completed: false
+        answers: []
       }
   }
 
   componentDidMount() {
     $.getJSON('./data/quiz.json', function(result) {
       this.setState({quiz: result})
-      this.setState({'numberOfQuestions': result.questions.length})
     }.bind(this))
   }
 
   handleSubmit() {
-    if (this.state.index + 1 < this.state.numberOfQuestions) {
+    if (this.state.index < this.state.quiz.questions.length) {
       this.setState({'index': this.state.index + 1})
     } else {
-      this.setState({'completed': true})
       let score = this.state.score || 0
       this.state.answers.map((answer, i) => (
         score = score + this.state.quiz.questions[i].answers[answer].point
@@ -47,12 +42,22 @@ export default class Quiz extends React.Component {
 
   render() {
     const {
-      quiz, index, numberOfQuestions, score
+      quiz, index, answers
     } = this.state
+
+    let completed = (quiz.questions && (index === quiz.questions.length)) ? true : false
+    let numberOfQuestions = quiz.questions ? quiz.questions.length : 0
+    let score = 0
+    if (completed) {
+      this.state.answers.map((answer, i) => (
+        score = score + this.state.quiz.questions[i].answers[answer].point
+      ))
+    }
+
     return (
       <div>
         <h1>{quiz.title}</h1>
-        {this.state.completed ?
+        {completed ?
           <div>
             <p>Congratulation, you finish the quiz</p>
             Your score is {score}
@@ -60,7 +65,7 @@ export default class Quiz extends React.Component {
         :
           <div>
           <h2>Question {index + 1} of {numberOfQuestions}</h2>
-          {quiz.questions && index < quiz.questions.length ?
+          {quiz.questions && index < numberOfQuestions ?
             <Question
               question={quiz.questions[index]}
               index={index}
