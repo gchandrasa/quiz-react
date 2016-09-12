@@ -59,7 +59,7 @@ export default class Quiz extends React.Component {
         <h1>{quiz.title}</h1>
         {completed ?
           <div>
-            <p>Congratulation, you finish the quiz</p>
+            <p>Congratulation, you finished the quiz</p>
             Your score is {score}
           </div>
         :
